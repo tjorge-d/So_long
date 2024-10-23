@@ -14,28 +14,28 @@
 
 void	corners(t_map *map, int y, int x)
 {
-	if (map->collisions[y][x] == '1' && map->collisions[y - 1][x] == '1' 
-	&& ground(map->map[y - 1][x + 1]) && map->collisions[y][x - 1] == '1' 
+	if (map->collisions[y][x] == '1' && map->collisions[y - 1][x] == '1'
+	&& ground(map->map[y - 1][x + 1]) && map->collisions[y][x - 1] == '1'
 	&& map->collisions[y - 1][x - 1] == '1' && map->collisions[y][x + 1] == '1'
-	&& map->collisions[y + 1][x - 1] == '1' && map->collisions[y + 1][x] == '1' 
+	&& map->collisions[y + 1][x - 1] == '1' && map->collisions[y + 1][x] == '1'
 	&& map->collisions[y + 1][x + 1] == '1')
 		map->map[y][x] = 1;
-	else if (ground(map->map[y - 1][x - 1]) && map->collisions[y - 1][x] == '1' 
-	&& map->collisions[y - 1][x + 1] == '1' && map->collisions[y][x - 1] == '1' 
+	else if (ground(map->map[y - 1][x - 1]) && map->collisions[y - 1][x] == '1'
+	&& map->collisions[y - 1][x + 1] == '1' && map->collisions[y][x - 1] == '1'
 	&& map->collisions[y][x] == '1' && map->collisions[y][x + 1] == '1'
-	&& map->collisions[y + 1][x - 1] == '1' && map->collisions[y + 1][x] == '1' 
+	&& map->collisions[y + 1][x - 1] == '1' && map->collisions[y + 1][x] == '1'
 	&& map->collisions[y + 1][x + 1] == '1')
 		map->map[y][x] = 3;
-	else if (map->collisions[y - 1][x - 1] == '1' 
-	&& map->collisions[y - 1][x] == '1' && map->collisions[y - 1][x + 1] == '1' 
-	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1' 
-	&& map->collisions[y][x + 1] == '1' && map->collisions[y + 1][x - 1] == '1' 
+	else if (map->collisions[y - 1][x - 1] == '1'
+	&& map->collisions[y - 1][x] == '1' && map->collisions[y - 1][x + 1] == '1'
+	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1'
+	&& map->collisions[y][x + 1] == '1' && map->collisions[y + 1][x - 1] == '1'
 	&& map->collisions[y + 1][x] == '1' && ground(map->map[y + 1][x + 1]))
 		map->map[y][x] = 7;
-	else if (map->collisions[y - 1][x - 1] == '1' 
-	&& map->collisions[y - 1][x] == '1' && map->collisions[y - 1][x + 1] == '1' 
-	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1' 
-	&& map->collisions[y][x + 1] == '1' && ground(map->map[y + 1][x - 1]) 
+	else if (map->collisions[y - 1][x - 1] == '1'
+	&& map->collisions[y - 1][x] == '1' && map->collisions[y - 1][x + 1] == '1'
+	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1'
+	&& map->collisions[y][x + 1] == '1' && ground(map->map[y + 1][x - 1])
 	&& map->collisions[y + 1][x] == '1' && map->collisions[y + 1][x + 1] == '1')
 		map->map[y][x] = 9;
 }
@@ -66,24 +66,24 @@ void	inner_corners2(t_map *map, int y, int x)
 
 void	inner_corners(t_map *map, int y, int x)
 {
-	if (map->collisions[y - 1][x] == '1' 
-	&& map->collisions[y - 1][x + 1] == '1' && ground(map->map[y][x - 1]) 
+	if (map->collisions[y - 1][x] == '1'
+	&& map->collisions[y - 1][x + 1] == '1' && ground(map->map[y][x - 1])
 	&& map->collisions[y][x] == '1' && map->collisions[y][x + 1] == '1'
 	&& ground(map->map[y + 1][x - 1]) && ground(map->map[y + 1][x]))
 		map->map[y][x] = 11;
-	else if (map->collisions[y - 1][x - 1] == '1' 
-	&& map->collisions[y - 1][x] == '1' && map->collisions[y][x - 1] == '1' 
+	else if (map->collisions[y - 1][x - 1] == '1'
+	&& map->collisions[y - 1][x] == '1' && map->collisions[y][x - 1] == '1'
 	&& map->collisions[y][x] == '1' && ground(map->map[y][x + 1])
 	&& ground(map->map[y + 1][x]) && ground(map->map[y + 1][x + 1]))
 		map->map[y][x] = 33;
 	else if (ground(map->map[y - 1][x]) && ground(map->map[y - 1][x + 1])
-	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1' 
-	&& ground(map->map[y][x + 1]) && map->collisions[y + 1][x - 1] == '1' 
+	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1'
+	&& ground(map->map[y][x + 1]) && map->collisions[y + 1][x - 1] == '1'
 	&& map->collisions[y + 1][x] == '1')
 		map->map[y][x] = 99;
-	else if (ground(map->map[y - 1][x - 1]) && ground(map->map[y - 1][x]) 
-	&& ground(map->map[y][x - 1]) && map->collisions[y][x] == '1' 
-	&& map->collisions[y][x + 1] == '1' && map->collisions[y + 1][x] == '1' 
+	else if (ground(map->map[y - 1][x - 1]) && ground(map->map[y - 1][x])
+	&& ground(map->map[y][x - 1]) && map->collisions[y][x] == '1'
+	&& map->collisions[y][x + 1] == '1' && map->collisions[y + 1][x] == '1'
 	&& map->collisions[y + 1][x + 1] == '1')
 		map->map[y][x] = 77;
 }

@@ -80,6 +80,25 @@ static void	create_front(t_frame *frame, t_map *map, t_mlx *mlx, t_image *asset)
 	}
 }
 
+void	build_map(t_frame *frame, t_mlx *mlx)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < mlx->map->height * mlx->s)
+	{
+		x = -1;
+		while (++x < mlx->map->width * mlx->s)
+		{
+			my_mlx_pixel_put(&frame->frame, x, y, \
+			get_color(&frame->back, x, y));
+			my_mlx_pixel_put(&frame->frame, x, y, \
+			get_color(&frame->front, x, y));
+		}
+	}
+}
+
 void	layers_creator(t_frame *frame, t_map *map, t_mlx *mlx, t_image *asset)
 {
 	create_back(frame, map, mlx, asset);
@@ -92,4 +111,5 @@ void	layers_creator(t_frame *frame, t_map *map, t_mlx *mlx, t_image *asset)
 		map->height * mlx->s);
 	frame->frame.addr = mlx_get_data_addr(frame->frame.img, &frame->frame.bpp, \
 		&frame->frame.line_length, &frame->frame.endian);
+	build_map(frame, mlx);
 }

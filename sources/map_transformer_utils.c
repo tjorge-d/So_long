@@ -14,10 +14,10 @@
 
 int	ground(char current)
 {
-	if (current == '0' 
-		|| current == 'C' 
-		|| current == 'E' 
-		|| current == 'P' 
+	if (current == '0'
+		|| current == 'C'
+		|| current == 'E'
+		|| current == 'P'
 		|| current == 5)
 		return (1);
 	else
@@ -26,43 +26,43 @@ int	ground(char current)
 
 static void	walls(t_map *map, int y, int x)
 {
-	if (ground(map->map[y - 1][x]) && map->collisions[y][x - 1] == '1' 
+	if (ground(map->map[y - 1][x]) && map->collisions[y][x - 1] == '1'
 	&& map->collisions[y][x] == '1' && map->collisions[y][x + 1] == '1'
-	&& map->collisions[y + 1][x - 1] == '1' 
+	&& map->collisions[y + 1][x - 1] == '1'
 	&& map->collisions[y + 1][x] == '1' && map->collisions[y + 1][x + 1] == '1')
 		map->map[y][x] = 2;
-	else if (map->collisions[y - 1][x - 1] == '1' 
-	&& map->collisions[y - 1][x] == '1' && map->collisions[y][x - 1] == '1' 
-	&& map->collisions[y][x] == '1' && ground(map->map[y][x + 1]) 
+	else if (map->collisions[y - 1][x - 1] == '1'
+	&& map->collisions[y - 1][x] == '1' && map->collisions[y][x - 1] == '1'
+	&& map->collisions[y][x] == '1' && ground(map->map[y][x + 1])
 	&& map->collisions[y + 1][x - 1] == '1' && map->collisions[y + 1][x] == '1')
 		map->map[y][x] = 4;
-	else if (map->collisions[y - 1][x] == '1' 
-	&& map->collisions[y - 1][x + 1] == '1' && ground(map->map[y][x - 1]) 
-	&& map->collisions[y][x] == '1' && map->collisions[y][x + 1] == '1' 
+	else if (map->collisions[y - 1][x] == '1'
+	&& map->collisions[y - 1][x + 1] == '1' && ground(map->map[y][x - 1])
+	&& map->collisions[y][x] == '1' && map->collisions[y][x + 1] == '1'
 	&& map->collisions[y + 1][x] == '1' && map->collisions[y + 1][x + 1] == '1')
 		map->map[y][x] = 6;
-	else if (map->collisions[y - 1][x - 1] == '1' 
-	&& map->collisions[y - 1][x] == '1' && map->collisions[y - 1][x + 1] == '1' 
-	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1' 
+	else if (map->collisions[y - 1][x - 1] == '1'
+	&& map->collisions[y - 1][x] == '1' && map->collisions[y - 1][x + 1] == '1'
+	&& map->collisions[y][x - 1] == '1' && map->collisions[y][x] == '1'
 	&& map->collisions[y][x + 1] == '1' && ground(map->map[y + 1][x]))
 		map->map[y][x] = 8;
 }
 
 static void	doors(t_map *map, int y, int x)
 {
-	if ((map->collisions[y][x] == 'E' || map->collisions[y][x] == 'P') 
+	if ((map->collisions[y][x] == 'E' || map->collisions[y][x] == 'P')
 	&& map->map[y - 1][x] == 8)
 	{
 		map->map[y][x] = '0';
 		map->map[y - 1][x] = 88;
 	}
-	else if ((map->collisions[y][x] == 'E' || map->collisions[y][x] == 'P') 
+	else if ((map->collisions[y][x] == 'E' || map->collisions[y][x] == 'P')
 	&& map->map[y][x + 1] == 6)
 	{
 		map->map[y][x] = '0';
 		map->map[y][x + 1] = 66;
 	}
-	else if ((map->collisions[y][x] == 'E' || map->collisions[y][x] == 'P') 
+	else if ((map->collisions[y][x] == 'E' || map->collisions[y][x] == 'P')
 	&& map->map[y][x - 1] == 4)
 	{
 		map->map[y][x] = '0';
@@ -79,21 +79,21 @@ static void	singles(t_map *map, int y, int x)
 		x = 0;
 		while (++x < (map->width - 1))
 		{
-			if (map->collisions[y][x] == '1' 
-			&& !((map->collisions[y - 1][x - 1] == '1' 
+			if (map->collisions[y][x] == '1'
+			&& !((map->collisions[y - 1][x - 1] == '1'
 			&& map->collisions[y - 1][x] == '1'
 			&& map->collisions[y][x - 1] == '1' \
-			&& map->collisions[y][x] == '1') 
-			|| (map->collisions[y - 1][x] == '1' 
+			&& map->collisions[y][x] == '1')
+			|| (map->collisions[y - 1][x] == '1'
 			&& map->collisions[y - 1][x + 1] == '1'
 			&& map->collisions[y][x] == '1' \
-			&& map->collisions[y][x + 1] == '1') 
+			&& map->collisions[y][x + 1] == '1')
 			|| (map->collisions[y][x - 1] == '1' \
-			&& map->collisions[y][x] == '1' 
-			&& map->collisions[y + 1][x - 1] == '1' 
-			&& map->collisions[y + 1][x] == '1') 
+			&& map->collisions[y][x] == '1'
+			&& map->collisions[y + 1][x - 1] == '1'
+			&& map->collisions[y + 1][x] == '1')
 			|| (map->collisions[y][x] == '1' && map->collisions[y][x + 1] == '1'
-			&& map->collisions[y + 1][x] == '1' 
+			&& map->collisions[y + 1][x] == '1'
 			&& map->collisions[y + 1][x + 1] == '1')))
 				map->map[y][x] = 5;
 		}

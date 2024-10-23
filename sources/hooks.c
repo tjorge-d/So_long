@@ -21,7 +21,7 @@ static void	state_refresher(t_mlx *mlx, int state)
 	else if (state == LEFT)
 	{
 		mlx->frame->player_state_x--;
-		if (mlx->frame->movement_count == (2000 / (SPEED))) 
+		if (mlx->frame->movement_count == (2000 / (SPEED)))
 			mlx->frame->player = mlx->asset[AL1];
 		else
 			mlx->frame->player = mlx->asset[AL2];

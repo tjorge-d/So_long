@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjorge-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tjorge-d <tiagoscp2020@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:49:15 by tjorge-d          #+#    #+#             */
-/*   Updated: 2024/01/18 17:49:18 by tjorge-d         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:50:31 by tjorge-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	asset_switcher(t_mlx *mlx, int mode, int step)
 {
-	if (mode == 2) 
+	if (mode == 2)
 	{
 		if (mlx->frame->player_state_y == -1)
 			mlx->frame->player = mlx->asset[AU2];
@@ -25,7 +25,7 @@ static void	asset_switcher(t_mlx *mlx, int mode, int step)
 		if (mlx->frame->player_state_x == 1)
 			mlx->frame->player = mlx->asset[AR2];
 	}
-	else if (mode == 1) 
+	else if (mode == 1)
 	{
 		if (mlx->frame->player_state_y == -1)
 			mlx->frame->player = mlx->asset[AU1];
@@ -86,7 +86,7 @@ static void	player_movement(t_mlx *mlx)
 	{
 		mlx->steps++;
 		free(mlx->steps_str);
-		mlx->steps_str = ft_itoa(mlx->steps); 
+		mlx->steps_str = ft_itoa(mlx->steps);
 		mlx->step_bol = 0;
 	}
 }
@@ -108,6 +108,7 @@ static void	collectibles_check(t_mlx *mlx)
 		free(mlx->map->collect_str);
 		mlx->map->collect_str = ft_itoa(mlx->map->collect);
 		refresh_back(mlx->frame, mlx->map, mlx, mlx->asset);
+		build_map(mlx->frame, mlx);
 	}
 }
 

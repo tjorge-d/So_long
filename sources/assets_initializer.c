@@ -53,7 +53,7 @@ static void	xpm_paths_1(t_image *asset)
 	asset[66].path = "./textures/map/xpm/66.xpm";
 	asset[77].path = "./textures/map/xpm/77.xpm";
 	asset[88].path = "./textures/map/xpm/88.xpm";
-	asset[99].path = "./textures/map/xpm/99.xpm"; 
+	asset[99].path = "./textures/map/xpm/99.xpm";
 	asset[69].path = "./textures/map/xpm/69.xpm";
 	asset[101].path = "./textures/map/xpm/101.xpm";
 	asset[67].path = "./textures/map/xpm/67.xpm";

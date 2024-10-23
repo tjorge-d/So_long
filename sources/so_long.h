@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjorge-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tjorge-d <tiagoscp2020@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 14:00:59 by tjorge-d          #+#    #+#             */
-/*   Updated: 2023/12/26 14:01:03 by tjorge-d         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:53:39 by tjorge-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include "../libft/libft.h"
 # include <sys/time.h>
 
-typedef enum e_type {
+typedef enum e_type
+{
 	AD = 111,
 	AD1 = 112,	
 	AD2 = 113,
@@ -136,6 +137,7 @@ t_image			*assets_initializer(t_mlx *mlx, t_map *map);
 void			layers_creator(t_frame *frame, t_map *map, \
 					t_mlx *mlx, t_image *asset);
 void			to_img(t_image *asset, t_image *image, int x1, int y1);
+void			build_map(t_frame *frame, t_mlx *mlx);
 
 //frame_painter.c
 void			my_mlx_pixel_put(t_image *img, int x, int y, int color);

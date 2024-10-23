@@ -25,16 +25,16 @@ static void	collect_to_player(t_map *map, int y, int x, int *collect)
 		map->collisions[y][x] = 'p';
 	else if (map->collisions[y][x] == 'E')
 		map->collisions[y][x] = 'e';
-	if (map->collisions[y][x + 1] == '0' 
+	if (map->collisions[y][x + 1] == '0'
 	|| map->collisions[y][x + 1] == 'E' || map->collisions[y][x + 1] == 'C')
 		collect_to_player(map, y, x + 1, collect);
-	if (map->collisions[y + 1][x] == '0' 
+	if (map->collisions[y + 1][x] == '0'
 	|| map->collisions[y + 1][x] == 'E' || map->collisions[y + 1][x] == 'C')
 		collect_to_player(map, y + 1, x, collect);
-	if (map->collisions[y][x - 1] == '0' 
+	if (map->collisions[y][x - 1] == '0'
 	|| map->collisions[y][x - 1] == 'E' || map->collisions[y][x - 1] == 'C')
 		collect_to_player(map, y, x - 1, collect);
-	if (map->collisions[y - 1][x] == '0' 
+	if (map->collisions[y - 1][x] == '0'
 	|| map->collisions[y - 1][x] == 'E' || map->collisions[y - 1][x] == 'C')
 		collect_to_player(map, y - 1, x, collect);
 }
@@ -52,16 +52,16 @@ static void	collect_to_exit(t_map *map, int y, int x, int *collect)
 		map->collisions[y][x] = 'P';
 	else if (map->collisions[y][x] == 'e')
 		map->collisions[y][x] = 'E';
-	if (map->collisions[y][x + 1] == 'f' 
+	if (map->collisions[y][x + 1] == 'f'
 	|| map->collisions[y][x + 1] == 'p' || map->collisions[y][x + 1] == 'c')
 		collect_to_exit(map, y, x + 1, collect);
-	if (map->collisions[y + 1][x] == 'f' 
+	if (map->collisions[y + 1][x] == 'f'
 	|| map->collisions[y + 1][x] == 'p' || map->collisions[y + 1][x] == 'c')
 		collect_to_exit(map, y + 1, x, collect);
-	if (map->collisions[y][x - 1] == 'f' 
+	if (map->collisions[y][x - 1] == 'f'
 	|| map->collisions[y][x - 1] == 'p' || map->collisions[y][x - 1] == 'c')
 		collect_to_exit(map, y, x - 1, collect);
-	if (map->collisions[y - 1][x] == 'f' 
+	if (map->collisions[y - 1][x] == 'f'
 	|| map->collisions[y - 1][x] == 'p' || map->collisions[y - 1][x] == 'c')
 		collect_to_exit(map, y - 1, x, collect);
 }
@@ -78,8 +78,8 @@ static void	char_checker(t_map *map, int y, int x)
 		x = -1;
 		while (map->collisions[y][++x] != '\n')
 		{
-			if (map->collisions[y][x] != '1' && map->collisions[y][x] != '0' 
-			&& map->collisions[y][x] != 'C' && map->collisions[y][x] != 'E' 
+			if (map->collisions[y][x] != '1' && map->collisions[y][x] != '0'
+			&& map->collisions[y][x] != 'C' && map->collisions[y][x] != 'E'
 			&& map->collisions[y][x] != 'P')
 				delete_map(map->collisions, 'e');
 			if (map->collisions[y][x] == 'C')

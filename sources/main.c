@@ -40,8 +40,8 @@ int	main(int argc, char *argv[])
 	if (!mlx.window)
 		return (delete_map(map.map, 'a'), delete_map(map.collisions, 'a'), \
 		free(mlx.mlx), destroy_assets(&mlx, asset), 1);
-	layers_creator(&frame, &map, &mlx, asset);
 	vars_init(&frame, &map, &mlx, asset);
+	layers_creator(&frame, &map, &mlx, asset);
 	mlx_hook(mlx.window, DestroyNotify, StructureNotifyMask, &end_game, &mlx);
 	mlx_hook(mlx.window, KeyPress, KeyPressMask, &key_press, &mlx);
 	mlx_hook(mlx.window, KeyRelease, KeyReleaseMask, &key_release, &mlx);

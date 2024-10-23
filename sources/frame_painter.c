@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   frame_painter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjorge-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tjorge-d <tiagoscp2020@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:48:46 by tjorge-d          #+#    #+#             */
-/*   Updated: 2024/01/18 17:48:50 by tjorge-d         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:55:22 by tjorge-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,19 @@ void	render(t_mlx *mlx, t_frame *frame)
 	int		y;
 	int		x;
 
-	y = -1;
-	while (++y < mlx->map->height * mlx->s)
+	y = frame->player_y - 31;
+	while (++y < frame->player_y + frame->player.height / SCALER + 30)
 	{
-		x = -1;
-		while (++x < mlx->map->width * mlx->s)
+		x = frame->player_x - 31;
+		while (++x < frame->player_x + frame->player.width / SCALER + 30)
 		{
 			my_mlx_pixel_put(&frame->frame, x, y, \
 			get_color(&frame->back, x, y));
 			if (x >= frame->player_x && x < frame->player_x + (mlx->s / 4) \
 			&& y >= frame->player_y && y < frame->player_y + (mlx->s / 2))
-			{
 				my_mlx_pixel_put(&frame->frame, x, y, get_color(&frame->player, \
 				(x - frame->player_x) * SCALER, \
 				(y - frame->player_y) * SCALER));
-			}
 			my_mlx_pixel_put(&frame->frame, x, y, \
 			get_color(&frame->front, x, y));
 		}
