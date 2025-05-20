@@ -36,9 +36,9 @@ typedef enum e_type
 	LEFT = 97,
 	DOWN = 115,
 	RIGHT = 100
-}	t_type;
+} t_type;
 
-# define SCALER 2
+# define SCALER 1
 # define SPEED 8
 # define FRAME_RATE 30
 
