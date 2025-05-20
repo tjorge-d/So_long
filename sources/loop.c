@@ -93,17 +93,17 @@ static void	player_movement(t_mlx *mlx)
 
 static void	collectibles_check(t_mlx *mlx)
 {
-	if ((mlx->map->map[(mlx->frame->player_y) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 'C' \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-	[(mlx->frame->player_x - mlx->s / 7) / mlx->s] == 'C' \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 'C' \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 4 + mlx->s / 7) / mlx->s] == 'C'))
+	if ((mlx->map->map[(int)(mlx->frame->player_y) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 'C' \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+	[(int)(mlx->frame->player_x - mlx->s / 7) / mlx->s] == 'C' \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 'C' \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 4 + mlx->s / 7) / mlx->s] == 'C'))
 	{
-		mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-		[(mlx->frame->player_x + mlx->s / 8) / mlx->s] = '0';
+		mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+		[(int)(mlx->frame->player_x + mlx->s / 8) / mlx->s] = '0';
 		mlx->map->collect--;
 		free(mlx->map->collect_str);
 		mlx->map->collect_str = ft_itoa(mlx->map->collect);

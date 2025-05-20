@@ -6,7 +6,7 @@
 /*   By: tjorge-d <tiagoscp2020@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 14:00:59 by tjorge-d          #+#    #+#             */
-/*   Updated: 2024/06/17 12:53:39 by tjorge-d         ###   ########.fr       */
+/*   Updated: 2025/05/20 14:34:21 by tjorge-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ typedef enum e_type
 	RIGHT = 100
 } t_type;
 
-# define SCALER 1
+# define SCALER 2
 # define SPEED 8
-# define FRAME_RATE 30
+# define FRAME_RATE 60
 
 typedef struct s_timeval
 {
@@ -64,8 +64,8 @@ typedef struct s_frame
 {
 	t_image		back;
 	t_image		player;
-	int			player_x;
-	int			player_y;
+	float		player_x;
+	float		player_y;
 	int			player_state_x;
 	int			player_state_y;
 	int			movement_count;
@@ -101,7 +101,7 @@ typedef struct s_mlx
 	int			step_bol;
 	char		*steps_str;
 	int			s;
-	int			mov;
+	float		mov;
 	int			x;
 	int			y;
 }	t_mlx;

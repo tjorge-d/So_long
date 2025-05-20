@@ -14,8 +14,8 @@
 
 char	coll_pivot(t_mlx *mlx, int offset_y, int offset_x)
 {
-	return (mlx->map->collisions[(mlx->frame->player_y \
-	+ offset_y) / mlx->s][(mlx->frame->player_x + offset_x) / mlx->s]);
+	return (mlx->map->collisions[(int)(mlx->frame->player_y \
+	+ offset_y) / mlx->s][(int)(mlx->frame->player_x + offset_x) / mlx->s]);
 }
 
 int	y_walls(t_mlx *mlx)

@@ -14,12 +14,12 @@
 
 static int	exit_check_up(t_mlx *mlx)
 {
-	if (mlx->map->map[(mlx->frame->player_y) / mlx->s] \
-	[(mlx->frame->player_x - mlx->s / 7) / mlx->s] == 88 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 4 + mlx->s / 7) / mlx->s] == 88 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 18)
+	if (mlx->map->map[(int)(mlx->frame->player_y) / mlx->s] \
+	[(int)(mlx->frame->player_x - mlx->s / 7) / mlx->s] == 88 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 4 + mlx->s / 7) / mlx->s] == 88 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 18)
 		return (1);
 	else
 		return (0);
@@ -27,12 +27,12 @@ static int	exit_check_up(t_mlx *mlx)
 
 static int	exit_check_left(t_mlx *mlx)
 {
-	if (mlx->map->map[(mlx->frame->player_y - mlx->s / 8) / mlx->s] \
-	[(mlx->frame->player_x - 1) / mlx->s] == 44 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
-	[(mlx->frame->player_x - 1) / mlx->s] == 44 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-	[(mlx->frame->player_x) / mlx->s] == 14)
+	if (mlx->map->map[(int)(mlx->frame->player_y - mlx->s / 8) / mlx->s] \
+	[(int)(mlx->frame->player_x - 1) / mlx->s] == 44 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
+	[(int)(mlx->frame->player_x - 1) / mlx->s] == 44 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+	[(int)(mlx->frame->player_x) / mlx->s] == 14)
 		return (1);
 	else
 		return (0);
@@ -40,12 +40,12 @@ static int	exit_check_left(t_mlx *mlx)
 
 static int	exit_check_right(t_mlx *mlx)
 {
-	if (mlx->map->map[(mlx->frame->player_y - mlx->s / 8) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 4 + 1) / mlx->s] == 66 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 4 + 1) / mlx->s] == 66 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-	[(mlx->frame->player_x) / mlx->s] == 16)
+	if (mlx->map->map[(int)(mlx->frame->player_y - mlx->s / 8) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 4 + 1) / mlx->s] == 66 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 4 + 1) / mlx->s] == 66 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+	[(int)(mlx->frame->player_x) / mlx->s] == 16)
 		return (1);
 	else
 		return (0);
@@ -53,14 +53,14 @@ static int	exit_check_right(t_mlx *mlx)
 
 static int	exit_check_ground(t_mlx *mlx)
 {
-	if ((mlx->map->map[(mlx->frame->player_y) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 101 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-	[(mlx->frame->player_x - mlx->s / 7) / mlx->s] == 101 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 101 \
-	&& mlx->map->map[(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
-	[(mlx->frame->player_x + mlx->s / 4 + mlx->s / 7) / mlx->s] == 101))
+	if ((mlx->map->map[(int)(mlx->frame->player_y) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 101 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+	[(int)(mlx->frame->player_x - mlx->s / 7) / mlx->s] == 101 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 2) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 8) / mlx->s] == 101 \
+	&& mlx->map->map[(int)(mlx->frame->player_y + mlx->s / 4) / mlx->s] \
+	[(int)(mlx->frame->player_x + mlx->s / 4 + mlx->s / 7) / mlx->s] == 101))
 		return (1);
 	else
 		return (0);
