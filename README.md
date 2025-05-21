@@ -21,7 +21,6 @@ A valid file must have a **rectangular** map drawn as text using **1**’s to de
 
 ```txt
 111111111111
-111111111111
 1P11C01110C1
 101110C00001
 1C0000001111
